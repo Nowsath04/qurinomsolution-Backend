@@ -24,7 +24,7 @@ app.use(morgan("dev"));
 
 //routes
 app.use("/api/v1/user", userRoutes);
-app.use("/api/v1/post", postRoutes);
+app.use("/api/v1/blog", postRoutes);
 
 // Port
 const PORT = process.env.PORT || 8080;

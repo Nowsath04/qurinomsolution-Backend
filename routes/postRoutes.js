@@ -12,21 +12,21 @@ const router = express.Router();
 
 //routes
 // GET || all post
-router.get("/all-post", getAllPost);
+router.get("/all-blog", getAllPost);
 
 //POST || create post
-router.post("/create-post", createPost);
+router.post("/create-blog", createPost);
 
 //PUT || update post
-router.put("/update-post/:id", updatePost);
+router.put("/update-blog/:id", updatePost);
 
 //GET || SIngle post Details
-router.get("/get-post/:id", getPostById);
+router.get("/get-blog/:id", getPostById);
 
 //DELETE || delete post
-router.delete("/delete-post/:id", deletePost);
+router.delete("/delete-blog/:id", deletePost);
 
 //GET || user post
-router.get("/user-post/:id", userPost);
+router.get("/user-blog/:id", userPost);
 
 export default router;
