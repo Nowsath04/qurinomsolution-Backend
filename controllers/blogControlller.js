@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
-const blogModel = require("../models/blogModel");
-const userModel = require("../models/userModel");
+import mongoose from "mongoose";
+import blogModel from "../models/blogModel.js";
+import userModel from "../models/userModel.js";
 
 //GET ALL BLOGS
-exports.getAllBlogsController = async (req, res) => {
+export const getAllBlogsController = async (req, res) => {
   try {
     const blogs = await blogModel.find({}).populate("user");
     if (!blogs) {
@@ -29,7 +29,7 @@ exports.getAllBlogsController = async (req, res) => {
 };
 
 //Create Blog
-exports.createBlogController = async (req, res) => {
+export const createBlogController = async (req, res) => {
   try {
     const { title, description, image, user } = req.body;
     //validation
@@ -72,7 +72,7 @@ exports.createBlogController = async (req, res) => {
 };
 
 //Update Blog
-exports.updateBlogController = async (req, res) => {
+export const updateBlogController = async (req, res) => {
   try {
     const { id } = req.params;
     const { title, description, image } = req.body;
@@ -97,7 +97,7 @@ exports.updateBlogController = async (req, res) => {
 };
 
 //SIngle Blog
-exports.getBlogByIdController = async (req, res) => {
+export const getBlogByIdController = async (req, res) => {
   try {
     const { id } = req.params;
     const blog = await blogModel.findById(id);
@@ -123,7 +123,7 @@ exports.getBlogByIdController = async (req, res) => {
 };
 
 //Delete Blog
-exports.deleteBlogController = async (req, res) => {
+export const deleteBlogController = async (req, res) => {
   try {
     const blog = await blogModel
       // .findOneAndDelete(req.params.id)
@@ -146,7 +146,7 @@ exports.deleteBlogController = async (req, res) => {
 };
 
 //GET USER BLOG
-exports.userBlogControlller = async (req, res) => {
+export const userBlogControlller = async (req, res) => {
   try {
     const userBlog = await userModel.findById(req.params.id).populate("blogs");
 

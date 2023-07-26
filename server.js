@@ -1,16 +1,15 @@
-const express = require("express");
-const cors = require("cors");
-const morgan = require("morgan");
-const colors = require("colors");
-const dotenv = require("dotenv");
-const connectDB = require("./config/db");
+import express from "express";
+import cors from "cors";
+import morgan from "morgan";
+import dotenv from "dotenv";
+import connectDB from "./config/db.js";
 
 //env config
 dotenv.config();
 
 //router import
-const userRoutes = require("./routes/userRoutes");
-const blogRoutes = require("./routes/blogRoutes");
+import userRoutes from "./routes/userRoutes.js";
+import blogRoutes from "./routes/blogRoutes.js";
 
 //mongodb connection
 connectDB();

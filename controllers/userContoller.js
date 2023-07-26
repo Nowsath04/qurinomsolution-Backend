@@ -1,7 +1,8 @@
-const userModel = require("../models/userModel");
-const bcrypt = require("bcrypt");
+import bcrypt from "bcrypt";
+import userModel from "../models/userModel.js";
+
 //create user register user
-exports.registerController = async (req, res) => {
+export const registerController = async (req, res) => {
   try {
     const { username, email, password } = req.body;
     //validation
@@ -40,7 +41,7 @@ exports.registerController = async (req, res) => {
 };
 
 // get all users
-exports.getAllUsers = async (req, res) => {
+export const getAllUsers = async (req, res) => {
   try {
     const users = await userModel.find({});
     return res.status(200).send({
@@ -60,7 +61,7 @@ exports.getAllUsers = async (req, res) => {
 };
 
 //login
-exports.loginController = async (req, res) => {
+export const loginController = async (req, res) => {
   try {
     const { email, password } = req.body;
     //validation

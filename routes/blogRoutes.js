@@ -1,13 +1,12 @@
-const express = require("express");
-const {
+import express from "express";
+import {
   getAllBlogsController,
   createBlogController,
   updateBlogController,
   getBlogByIdController,
   deleteBlogController,
   userBlogControlller,
-} = require("../controllers/blogControlller");
-
+} from "../controllers/blogControlller.js";
 //router object
 const router = express.Router();
 
@@ -30,4 +29,4 @@ router.delete("/delete-blog/:id", deleteBlogController);
 //GET || user blog
 router.get("/user-blog/:id", userBlogControlller);
 
-module.exports = router;
+export default router;
