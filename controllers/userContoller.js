@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import userModel from "../models/userModel.js";
 
 //create user register user
-export const registerController = async (req, res) => {
+export const register = async (req, res) => {
   try {
     const { username, email, password } = req.body;
     //validation
@@ -61,7 +61,7 @@ export const getAllUsers = async (req, res) => {
 };
 
 //login
-export const loginController = async (req, res) => {
+export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     //validation
