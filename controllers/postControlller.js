@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
-import blogModel from "../models/blogModel.js";
+import postModel from "../models/postModel.js";
 import userModel from "../models/userModel.js";
 
-//GET ALL BLOGS
+//GET ALL POSTS CONTROLLERS
 export const getAllPost = async (req, res) => {
   try {
-    const blogs = await blogModel.find({}).populate("user");
+    const blogs = await postModel.find({}).populate("user");
     if (!blogs) {
       return res.status(200).send({
         success: false,
@@ -28,7 +28,7 @@ export const getAllPost = async (req, res) => {
   }
 };
 
-//Create Blog
+//CREATE POST CONTROLLERS
 export const createPost = async (req, res) => {
   try {
     const { title, description, image, user } = req.body;
@@ -40,7 +40,8 @@ export const createPost = async (req, res) => {
       });
     }
     const exisitingUser = await userModel.findById(user);
-    //validaton
+
+    //VALIDATION ERROR
     if (!exisitingUser) {
       return res.status(404).send({
         success: false,
@@ -71,7 +72,7 @@ export const createPost = async (req, res) => {
   }
 };
 
-//Update Blog
+// UPDATE POST CONTROLLERS
 export const updatePost = async (req, res) => {
   try {
     const { id } = req.params;
@@ -96,7 +97,7 @@ export const updatePost = async (req, res) => {
   }
 };
 
-//SIngle Blog
+//SINGLE POST CONTROLLERS
 export const getPostById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -122,7 +123,7 @@ export const getPostById = async (req, res) => {
   }
 };
 
-//Delete Blog
+// DELETE POST CONTROLLERS
 export const deletePost = async (req, res) => {
   try {
     const blog = await blogModel
@@ -145,7 +146,7 @@ export const deletePost = async (req, res) => {
   }
 };
 
-//GET USER BLOG
+// GET USER POST
 export const userPost = async (req, res) => {
   try {
     const userBlog = await userModel.findById(req.params.id).populate("blogs");
