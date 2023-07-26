@@ -11,22 +11,22 @@ import {
 const router = express.Router();
 
 //routes
-// GET || all blogs
-router.get("/all-blog", getAllPost);
+// GET || all post
+router.get("/all-post", getAllPost);
 
-//POST || create blog
-router.post("/create-blog", createPost);
+//POST || create post
+router.post("/create-post", createPost);
 
-//PUT || update blog
-router.put("/update-blog/:id", updatePost);
+//PUT || update post
+router.put("/update-post/:id", updatePost);
 
-//GET || SIngle Blog Details
-router.get("/get-blog/:id", getPostById);
+//GET || SIngle post Details
+router.get("/get-post/:id", getPostById);
 
-//DELETE || delete blog
-router.delete("/delete-blog/:id", deletePost);
+//DELETE || delete post
+router.delete("/delete-post/:id", deletePost);
 
-//GET || user blog
-router.get("/user-blog/:id", userPost);
+//GET || user post
+router.get("/user-post/:id", userPost);
 
 export default router;
