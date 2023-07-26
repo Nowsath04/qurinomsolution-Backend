@@ -28,6 +28,7 @@ app.use("/api/v1/blog", postRoutes);
 
 // Port
 const PORT = process.env.PORT || 8080;
+
 //listen
 app.listen(PORT, () => {
   console.log(`Server Running port on ${PORT}`);
