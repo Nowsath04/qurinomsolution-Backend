@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 import postModel from "../models/postModel.js";
 import userModel from "../models/userModel.js";
 
@@ -76,7 +77,6 @@ export const createPost = async (req, res) => {
 export const updatePost = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, image } = req.body;
     const blog = await postModel.findByIdAndUpdate(
       id,
       { ...req.body },
