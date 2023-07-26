@@ -77,7 +77,7 @@ export const updatePost = async (req, res) => {
   try {
     const { id } = req.params;
     const { title, description, image } = req.body;
-    const blog = await blogModel.findByIdAndUpdate(
+    const blog = await postModel.findByIdAndUpdate(
       id,
       { ...req.body },
       { new: true }
@@ -101,7 +101,7 @@ export const updatePost = async (req, res) => {
 export const getPostById = async (req, res) => {
   try {
     const { id } = req.params;
-    const blog = await blogModel.findById(id);
+    const blog = await postModel.findById(id);
     if (!blog) {
       return res.status(404).send({
         success: false,
@@ -126,7 +126,7 @@ export const getPostById = async (req, res) => {
 // DELETE POST CONTROLLERS
 export const deletePost = async (req, res) => {
   try {
-    const blog = await blogModel
+    const blog = await postModel
       // .findOneAndDelete(req.params.id)
       .findByIdAndDelete(req.params.id)
       .populate("user");
