@@ -9,20 +9,20 @@ export const getAllPost = async (req, res) => {
     if (!blogs) {
       return res.status(200).send({
         success: false,
-        message: "No Blogs Found",
+        message: "No Posts Found",
       });
     }
     return res.status(200).send({
       success: true,
       BlogCount: blogs.length,
-      message: "All Blogs lists",
+      message: "All Post lists",
       blogs,
     });
   } catch (error) {
     console.log(error);
     return res.status(500).send({
       success: false,
-      message: "Error WHile Getting Blogs",
+      message: "Error WHile Getting Posts",
       error,
     });
   }
@@ -36,7 +36,7 @@ export const createPost = async (req, res) => {
     if (!title || !description || !image || !user) {
       return res.status(400).send({
         success: false,
-        message: "Please Provide ALl Fields",
+        message: "Please Provide All Fields",
       });
     }
     const exisitingUser = await userModel.findById(user);
@@ -59,14 +59,14 @@ export const createPost = async (req, res) => {
     await newBlog.save();
     return res.status(201).send({
       success: true,
-      message: "Blog Created!",
+      message: "Posts Created!",
       newBlog,
     });
   } catch (error) {
     console.log(error);
     return res.status(400).send({
       success: false,
-      message: "Error WHile Creating blog",
+      message: "Error WHile Creating Posts",
       error,
     });
   }
@@ -84,14 +84,14 @@ export const updatePost = async (req, res) => {
     );
     return res.status(200).send({
       success: true,
-      message: "Blog Updated!",
+      message: "Posts Updated!",
       blog,
     });
   } catch (error) {
     console.log(error);
     return res.status(400).send({
       success: false,
-      message: "Error WHile Updating Blog",
+      message: "Error While Updating Posts",
       error,
     });
   }
@@ -105,19 +105,19 @@ export const getPostById = async (req, res) => {
     if (!blog) {
       return res.status(404).send({
         success: false,
-        message: "blog not found with this is",
+        message: "Posts not found with this is",
       });
     }
     return res.status(200).send({
       success: true,
-      message: "fetch single blog",
+      message: "fetch single Posts",
       blog,
     });
   } catch (error) {
     console.log(error);
     return res.status(400).send({
       success: false,
-      message: "error while getting single blog",
+      message: "error while getting single Posts",
       error,
     });
   }
@@ -134,13 +134,13 @@ export const deletePost = async (req, res) => {
     await blog.user.save();
     return res.status(200).send({
       success: true,
-      message: "Blog Deleted!",
+      message: "Posts Deleted!",
     });
   } catch (error) {
     console.log(error);
     return res.status(400).send({
       success: false,
-      message: "Erorr WHile Deleteing BLog",
+      message: "Error While Deleting Posts",
       error,
     });
   }
@@ -154,19 +154,19 @@ export const userPost = async (req, res) => {
     if (!userBlog) {
       return res.status(404).send({
         success: false,
-        message: "blogs not found with this id",
+        message: "Posts not found with this id",
       });
     }
     return res.status(200).send({
       success: true,
-      message: "user blogs",
+      message: "user Posts",
       userBlog,
     });
   } catch (error) {
     console.log(error);
     return res.status(400).send({
       success: false,
-      message: "error in user blog",
+      message: "error in user Posts",
       error,
     });
   }

@@ -54,7 +54,7 @@ export const getAllUsers = async (req, res) => {
     console.log(error);
     return res.status(500).send({
       success: false,
-      message: "Error In Get ALl Users",
+      message: "Error In Get All Users",
       error,
     });
   }
