@@ -9,5 +9,4 @@ const connectDB = async () => {
     console.log(`MONGO NOT CONNECTED: ${error}`);
   }
 };
-
 export default connectDB;

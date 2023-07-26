@@ -14,7 +14,7 @@ import postRoutes from "./routes/postRoutes.js";
 //mongodb connection
 connectDB();
 
-//rest objecct
+//rest object
 const app = express();
 
 //middelwares
@@ -27,7 +27,7 @@ app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/blog", postRoutes);
 
 // Port
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 
 //listen
 app.listen(PORT, () => {
