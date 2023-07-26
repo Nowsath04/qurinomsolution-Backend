@@ -49,7 +49,7 @@ export const createPost = async (req, res) => {
       });
     }
 
-    const newBlog = new blogModel({ title, description, image, user });
+    const newBlog = new postModel({ title, description, image, user });
     const session = await mongoose.startSession();
     session.startTransaction();
     await newBlog.save({ session });
